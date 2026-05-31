@@ -1,0 +1,840 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>GPT-5 Course Cheatsheet — O'Reilly Live Training</title>
+    <style>
+        /* ========================================
+           MODULAR GRID/CARD LAYOUT TEMPLATE
+           Modern, box-based design with visual sections
+           Optimized for A4 printing (210mm × 297mm)
+           ======================================== */
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        @page {
+            size: A4;
+            margin: 15mm;
+            @top-left { content: none; }
+            @top-center { content: none; }
+            @top-right { content: none; }
+            @bottom-left { content: none; }
+            @bottom-center { content: none; }
+            @bottom-right { content: none; }
+        }
+
+        body {
+            font-family: 'Helvetica', 'Arial', sans-serif;
+            font-size: 9.5pt;
+            line-height: 1.45;
+            color: #000;
+            background: #fff;
+            max-width: 210mm;
+            margin: 0 auto;
+            padding: 15mm;
+        }
+
+        .page-header {
+            text-align: center;
+            padding-bottom: 10pt;
+            margin-bottom: 12pt;
+            border-bottom: 3px solid #000;
+        }
+
+        .page-header h1 {
+            font-size: 22pt;
+            font-weight: 700;
+            margin-bottom: 4pt;
+            text-transform: uppercase;
+            letter-spacing: 2pt;
+        }
+
+        .page-header .subtitle {
+            font-size: 11pt;
+            color: #333;
+            margin-bottom: 4pt;
+        }
+
+        .page-header .meta {
+            font-size: 8.5pt;
+            color: #666;
+        }
+
+        .section-title {
+            font-size: 11pt;
+            font-weight: 700;
+            margin: 12pt 0 8pt 0;
+            padding: 5pt 10pt;
+            background: #000;
+            color: #fff;
+            text-transform: uppercase;
+            letter-spacing: 1pt;
+            break-after: avoid;
+        }
+
+        .grid-2 {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 8pt;
+            margin-bottom: 10pt;
+        }
+
+        .grid-3 {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 8pt;
+            margin-bottom: 10pt;
+        }
+
+        .card {
+            border: 2px solid #000;
+            padding: 8pt;
+            background: #fff;
+            break-inside: avoid;
+        }
+
+        .card-title {
+            font-size: 10pt;
+            font-weight: 700;
+            margin-bottom: 6pt;
+            padding-bottom: 4pt;
+            border-bottom: 1px solid #ccc;
+        }
+
+        .card-content {
+            font-size: 8.5pt;
+        }
+
+        .card-light {
+            border: 2px solid #000;
+            background: #f9f9f9;
+            padding: 8pt;
+            break-inside: avoid;
+        }
+
+        .card-accent {
+            border: 3px solid #000;
+            background: #fff;
+            padding: 8pt;
+            break-inside: avoid;
+        }
+
+        .info-box {
+            border: 2px solid #666;
+            border-left: 5px solid #000;
+            padding: 8pt;
+            margin: 8pt 0;
+            background: #f5f5f5;
+            break-inside: avoid;
+        }
+
+        .info-box-title {
+            font-weight: 700;
+            font-size: 9.5pt;
+            margin-bottom: 4pt;
+        }
+
+        .code-card {
+            border: 2px solid #000;
+            background: #fff;
+            padding: 0;
+            break-inside: avoid;
+        }
+
+        .code-card-header {
+            background: #000;
+            color: #fff;
+            padding: 4pt 8pt;
+            font-weight: 700;
+            font-size: 9pt;
+        }
+
+        .code-card pre {
+            margin: 0;
+            padding: 8pt;
+            font-family: 'Courier New', 'Courier', monospace;
+            font-size: 7.5pt;
+            line-height: 1.35;
+            background: #f9f9f9;
+            overflow: hidden;
+            white-space: pre-wrap;
+            word-break: break-all;
+            overflow-wrap: break-word;
+        }
+
+        .table-card {
+            border: 2px solid #000;
+            background: #fff;
+            padding: 0;
+            break-inside: avoid;
+        }
+
+        .table-card-header {
+            background: #000;
+            color: #fff;
+            padding: 5pt 8pt;
+            font-weight: 700;
+            font-size: 10pt;
+        }
+
+        .table-card table {
+            width: 100%;
+            border-collapse: collapse;
+            font-size: 8.5pt;
+        }
+
+        .table-card th {
+            background: #f0f0f0;
+            color: #000;
+            font-weight: 700;
+            text-align: left;
+            padding: 5pt 7pt;
+            border-bottom: 2px solid #000;
+        }
+
+        .table-card td {
+            padding: 4pt 7pt;
+            border-bottom: 1px solid #ddd;
+            vertical-align: top;
+        }
+
+        .card ul, .card ol, .card-light ul, .card-light ol {
+            margin-left: 14pt;
+        }
+
+        .card li, .card-light li {
+            margin-bottom: 3pt;
+        }
+
+        .definition-card {
+            border: 2px solid #000;
+            padding: 7pt;
+            background: #fff;
+            break-inside: avoid;
+        }
+
+        .term {
+            font-weight: 700;
+            font-size: 10pt;
+            margin-bottom: 3pt;
+            color: #000;
+        }
+
+        .definition {
+            font-size: 8.5pt;
+            color: #333;
+        }
+
+        .key-points {
+            border: 3px solid #000;
+            background: #f9f9f9;
+            padding: 10pt;
+            margin: 10pt 0;
+            break-inside: avoid;
+        }
+
+        .key-points-title {
+            font-weight: 700;
+            font-size: 11pt;
+            margin-bottom: 8pt;
+            text-transform: uppercase;
+        }
+
+        .key-points ul {
+            margin-left: 14pt;
+        }
+
+        .key-points li {
+            margin-bottom: 4pt;
+            font-size: 9pt;
+        }
+
+        .badge {
+            display: inline-block;
+            background: #000;
+            color: #fff;
+            font-size: 7pt;
+            font-weight: 700;
+            padding: 1pt 4pt;
+            margin-left: 4pt;
+            vertical-align: middle;
+        }
+
+        .badge-gray {
+            display: inline-block;
+            background: #555;
+            color: #fff;
+            font-size: 7pt;
+            font-weight: 700;
+            padding: 1pt 4pt;
+            margin-left: 4pt;
+            vertical-align: middle;
+        }
+
+        code {
+            font-family: 'Courier New', monospace;
+            font-size: 8pt;
+            background: #f0f0f0;
+            padding: 0 2pt;
+        }
+
+        footer {
+            margin-top: 14pt;
+            padding-top: 8pt;
+            border-top: 2px solid #000;
+            text-align: center;
+            font-size: 8pt;
+            color: #666;
+        }
+
+        .mb-small { margin-bottom: 8pt; }
+        .mb-medium { margin-bottom: 12pt; }
+        .full-width { grid-column: 1 / -1; }
+
+        @media print {
+            body { margin: 0; padding: 15mm; }
+
+            .card, .card-light, .card-accent, .info-box,
+            .code-card, .table-card, .definition-card, .key-points {
+                break-inside: avoid;
+            }
+
+            .section-title { break-after: avoid; }
+
+            a { text-decoration: none; color: #000; }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="page-header">
+        <h1>GPT-5 Course Cheatsheet</h1>
+        <div class="subtitle">O'Reilly Live Training — Getting Started with GPT-5</div>
+        <div class="meta">Instructor: Lucas | Responses API · Parameters · Tools · Prompting · Agents | 2025</div>
+    </div>
+
+    <!-- SECTION 1: Model Variants -->
+    <div class="section-title">1. Model Variants</div>
+
+    <div class="grid-3 mb-small">
+        <div class="card">
+            <div class="card-title">gpt-5 <span class="badge">FLAGSHIP</span></div>
+            <div class="card-content">
+                <ul>
+                    <li>Complex reasoning &amp; multi-step</li>
+                    <li>Code generation &amp; refactoring</li>
+                    <li>Long context + tool calling</li>
+                    <li>Highest capability, higher latency</li>
+                </ul>
+            </div>
+        </div>
+        <div class="card">
+            <div class="card-title">gpt-5-mini</div>
+            <div class="card-content">
+                <ul>
+                    <li>Cost-optimised reasoning &amp; chat</li>
+                    <li>Balanced speed, cost, capability</li>
+                    <li>General chat, moderate tasks</li>
+                    <li>Replace: o4-mini</li>
+                </ul>
+            </div>
+        </div>
+        <div class="card">
+            <div class="card-title">gpt-5-nano</div>
+            <div class="card-content">
+                <ul>
+                    <li>High-throughput simple tasks</li>
+                    <li>Fastest, most cost-effective</li>
+                    <li>Extraction, formatting, classify</li>
+                    <li>Replace: gpt-4.1-nano</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+
+    <div class="info-box mb-small">
+        <div class="info-box-title">⚠ System Card vs API Names</div>
+        <p>System card uses different names than the API. Check <strong>platform.openai.com/docs/guides/latest-model</strong> for the official mapping table.</p>
+    </div>
+
+    <!-- SECTION 2: Responses API -->
+    <div class="section-title">2. Responses API (Recommended)</div>
+
+    <div class="grid-2 mb-small">
+        <div class="code-card">
+            <div class="code-card-header">Basic Call</div>
+            <pre><code>from openai import OpenAI
+client = OpenAI()
+
+response = client.responses.create(
+    model="gpt-5",
+    input="Your prompt here",
+    reasoning={"effort": "medium"},
+    text={"verbosity": "medium"}
+)
+print(response.output_text)</code></pre>
+        </div>
+        <div class="code-card">
+            <div class="code-card-header">Multi-turn with CoT Persistence</div>
+            <pre><code># First turn
+first = client.responses.create(
+    model="gpt-5",
+    input="Design an LRU cache in Python",
+    reasoning={"effort": "high"}
+)
+
+# Follow-up — reuses prior reasoning
+follow_up = client.responses.create(
+    model="gpt-5",
+    input="Add thread-safety.",
+    previous_response_id=first.id
+)</code></pre>
+        </div>
+    </div>
+
+    <div class="grid-2">
+        <div class="card-light">
+            <div class="card-title">Why Responses API over Chat Completions?</div>
+            <div class="card-content">
+                <ul>
+                    <li><strong>CoT persistence</strong> via <code>previous_response_id</code></li>
+                    <li>Fewer reasoning tokens re-generated</li>
+                    <li>Higher cache hit rates</li>
+                    <li>Lower latency on follow-ups</li>
+                    <li>Improved cross-turn coherence</li>
+                </ul>
+            </div>
+        </div>
+        <div class="card-light">
+            <div class="card-title">❌ Unsupported in GPT-5</div>
+            <div class="card-content">
+                <ul>
+                    <li><code>temperature</code> — not supported</li>
+                    <li><code>top_p</code> — not supported</li>
+                    <li><code>logprobs</code> — not supported</li>
+                </ul>
+                <p style="margin-top:6pt">Use instead:</p>
+                <ul>
+                    <li><code>reasoning: &#123;effort: ...&#125;</code></li>
+                    <li><code>text: &#123;verbosity: ...&#125;</code></li>
+                    <li><code>max_output_tokens</code></li>
+                </ul>
+            </div>
+        </div>
+    </div>
+
+    <!-- SECTION 3: Reasoning Effort -->
+    <div class="section-title">3. Reasoning Effort Parameter</div>
+
+    <div class="table-card mb-small">
+        <div class="table-card-header">reasoning=&#123;"effort": "..."&#125; — Default: "medium"</div>
+        <table>
+            <thead>
+                <tr>
+                    <th>Value</th>
+                    <th>Speed</th>
+                    <th>Reasoning Tokens</th>
+                    <th>Best For</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td><code>"minimal"</code> <span class="badge">NEW</span></td>
+                    <td>Fastest TTFT</td>
+                    <td>None / very few</td>
+                    <td>Extraction, formatting, simple classification, real-time UX</td>
+                </tr>
+                <tr>
+                    <td><code>"low"</code></td>
+                    <td>Fast</td>
+                    <td>Light</td>
+                    <td>Quick responses, GPT-4.1 migrations</td>
+                </tr>
+                <tr>
+                    <td><code>"medium"</code></td>
+                    <td>Balanced</td>
+                    <td>Moderate</td>
+                    <td>Default — general tasks, similar to o3</td>
+                </tr>
+                <tr>
+                    <td><code>"high"</code></td>
+                    <td>Slowest</td>
+                    <td>Most</td>
+                    <td>Complex math, multi-step planning, difficult code</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+
+    <!-- SECTION 4: Verbosity -->
+    <div class="section-title">4. Verbosity Parameter</div>
+
+    <div class="table-card mb-small">
+        <div class="table-card-header">text=&#123;"verbosity": "..."&#125; — Default: "medium"</div>
+        <table>
+            <thead>
+                <tr>
+                    <th>Value</th>
+                    <th>Approx. Tokens</th>
+                    <th>Best For</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td><code>"low"</code></td>
+                    <td>~560</td>
+                    <td>Terse UX, SQL queries, concise code, minimal prose</td>
+                </tr>
+                <tr>
+                    <td><code>"medium"</code></td>
+                    <td>~849</td>
+                    <td>Balanced explanations (default)</td>
+                </tr>
+                <tr>
+                    <td><code>"high"</code></td>
+                    <td>~1288</td>
+                    <td>Audits, teaching, hand-offs, detailed documentation</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+
+    <div class="info-box mb-small">
+        <div class="info-box-title">💡 Mixed Verbosity Strategy (Cursor pattern)</div>
+        <p>Set global <code>verbosity="low"</code> for prose, but instruct "use high verbosity for code tools" in the system prompt. Get concise explanations + detailed, well-commented code.</p>
+    </div>
+
+    <!-- SECTION 5: New Tool Features -->
+    <div class="section-title">5. New Tool Features</div>
+
+    <div class="grid-2 mb-small">
+        <div class="code-card">
+            <div class="code-card-header">Freeform / Custom Tool Calling (NEW)</div>
+            <pre><code># Raw text payloads — no JSON wrapping
+response = client.responses.create(
+    model="gpt-5",
+    input="Use code_exec to find factorial of 10.",
+    tools=[{
+        "type": "custom",
+        "name": "code_exec",
+        "description": "Executes arbitrary Python code"
+    }]
+)
+# Access: response.output[1].input  (raw code string)
+# Feed back: {"type": "function_call_output",
+#             "call_id": tool_call.call_id,
+#             "output": "result_string"}</code></pre>
+        </div>
+        <div class="code-card">
+            <div class="code-card-header">Context-Free Grammar (CFG) Constraints (NEW)</div>
+            <pre><code># Constrain output to exact syntax (Lark or Regex)
+tools=[{
+    "type": "custom",
+    "name": "sql_tool",
+    "description": "SQL tool — reason to conform",
+    "format": {
+        "type": "grammar",
+        "syntax": "lark",  # or "regex"
+        "definition": r"""
+start: "SELECT" SP cols SP "FROM"
+       SP table SP "WHERE" SP filter
+cols: IDENTIFIER ("," SP IDENTIFIER)*
+IDENTIFIER: /[A-Za-z_][A-Za-z0-9_]*/
+SP: " "
+"""
+    }
+}]</code></pre>
+        </div>
+    </div>
+
+    <div class="grid-2 mb-small">
+        <div class="card">
+            <div class="card-title">Freeform Tool — Key Points</div>
+            <div class="card-content">
+                <ul>
+                    <li>Use for Python, SQL, shell, config — anything where JSON wrapping is unnatural</li>
+                    <li>Model emits <code>ResponseCustomToolCall</code> with <code>.input</code> = raw string</li>
+                    <li>⚠ Does <strong>NOT</strong> support parallel tool calling</li>
+                    <li>Great for: code sandboxes, SQL databases, shell envs</li>
+                    <li>Feed result back via <code>function_call_output</code> to continue</li>
+                </ul>
+            </div>
+        </div>
+        <div class="card">
+            <div class="card-title">CFG — Key Points &amp; Best Practices</div>
+            <div class="card-content">
+                <ul>
+                    <li>Lark: terminals (UPPER) matched first; rules (lower) combine them</li>
+                    <li>Regex: provide pattern string directly</li>
+                    <li>✅ One bounded terminal for free-text between anchors</li>
+                    <li>❌ Don't split free-text across multiple terminals</li>
+                    <li>Use <code>SP = " "</code> explicitly; avoid <code>.*</code> wildcards</li>
+                    <li>If drifting OOD → tighten grammar + bump reasoning effort</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+
+    <div class="grid-2">
+        <div class="card-light">
+            <div class="card-title">Allowed Tools — Selective Access (NEW)</div>
+            <div class="card-content">
+                <ul>
+                    <li>Define full toolkit, restrict active subset per request</li>
+                    <li>Use for safety, predictability, preventing unintended calls</li>
+                </ul>
+                <div style="margin-top:6pt">
+                    <code style="font-size:7.5pt">tool_choice=&#123;"type":"allowed_tools","mode":"auto","tools":[&#123;"type":"function","name":"safe_tool"&#125;]&#125;</code>
+                </div>
+            </div>
+        </div>
+        <div class="card-light">
+            <div class="card-title">Tool Preambles</div>
+            <div class="card-content">
+                <ul>
+                    <li>GPT-5 trained to give upfront plans + progress updates</li>
+                    <li>Trigger: "Before calling a tool, explain why"</li>
+                    <li>System prompt: "Rephrase goal, outline plan, narrate each step, summarize at end"</li>
+                    <li>Useful for debugging and transparency</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+
+    <!-- SECTION 6: Migration Guide -->
+    <div class="section-title">6. Migration Guide</div>
+
+    <div class="table-card mb-small">
+        <div class="table-card-header">Migrating From Previous Models</div>
+        <table>
+            <thead>
+                <tr>
+                    <th>From Model</th>
+                    <th>Migrate To</th>
+                    <th>Recommended Settings</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td><code>o3</code></td>
+                    <td><code>gpt-5</code></td>
+                    <td><code>reasoning.effort: "medium"</code> or <code>"high"</code></td>
+                </tr>
+                <tr>
+                    <td><code>gpt-4.1</code></td>
+                    <td><code>gpt-5</code></td>
+                    <td><code>reasoning.effort: "minimal"</code> or <code>"low"</code></td>
+                </tr>
+                <tr>
+                    <td><code>o4-mini</code></td>
+                    <td><code>gpt-5-mini</code></td>
+                    <td>Default settings + prompt tuning</td>
+                </tr>
+                <tr>
+                    <td><code>gpt-4.1-nano</code></td>
+                    <td><code>gpt-5-nano</code></td>
+                    <td>Default settings + prompt tuning</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+
+    <!-- SECTION 7: Prompting Best Practices -->
+    <div class="section-title">7. Prompting Best Practices</div>
+
+    <div class="grid-2 mb-small">
+        <div class="card">
+            <div class="card-title">Controlling Agentic Eagerness</div>
+            <div class="card-content">
+                <p><strong>Less eager (quick, focused):</strong></p>
+                <ul>
+                    <li>Start broad, fan out to focused subqueries in parallel</li>
+                    <li>Stop as soon as you can name exact content to change</li>
+                    <li>Early stop: top hits converge ~70% on one area</li>
+                    <li>Batch search → minimal plan → complete task</li>
+                </ul>
+                <p style="margin-top:5pt"><strong>More eager (autonomous, persistent):</strong></p>
+                <ul>
+                    <li>"Keep going until query is completely resolved"</li>
+                    <li>"Never stop when encountering uncertainty"</li>
+                    <li>"Decide, proceed, document assumptions for user"</li>
+                </ul>
+            </div>
+        </div>
+        <div class="card">
+            <div class="card-title">Instruction Following Rules</div>
+            <div class="card-content">
+                <ul>
+                    <li>Keep instructions <strong>non-contradictory</strong></li>
+                    <li>Priority order: Security (CRITICAL) → Logic (HIGH) → Performance (MEDIUM) → Style (LOW)</li>
+                    <li>Specify output format explicitly</li>
+                    <li>Use structured system prompts with clear sections</li>
+                    <li>Markdown not used by default — must prompt for it</li>
+                    <li>Inline math: <code>\( \)</code>, block math: <code>\[ \]</code></li>
+                </ul>
+            </div>
+        </div>
+    </div>
+
+    <div class="grid-2 mb-small">
+        <div class="card">
+            <div class="card-title">Self-Reflection for High Quality</div>
+            <div class="card-content">
+                <p>Add to system prompt:</p>
+                <ul>
+                    <li>Create a quality rubric with 5-7 categories internally</li>
+                    <li>Evaluate and iterate until hitting top marks in ALL categories</li>
+                    <li>Don't show rubric to user — it's for internal reasoning</li>
+                    <li>Great for: one-shot app generation, frontend code, complex outputs</li>
+                </ul>
+            </div>
+        </div>
+        <div class="card">
+            <div class="card-title">Metaprompting</div>
+            <div class="card-content">
+                <p>Ask GPT-5 to improve its own prompts:</p>
+                <ul>
+                    <li><em>"Here's a prompt: {prompt}. Desired behavior: {X}. It instead {Y}. What minimal edits encourage improvement?"</em></li>
+                    <li>Use <code>reasoning.effort: "high"</code> for metaprompting tasks</li>
+                    <li>Keep as much of the original prompt intact as possible</li>
+                    <li>Ask for specific phrases to add or remove</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+
+    <!-- SECTION 8: Agentic Capabilities -->
+    <div class="section-title">8. Agentic Capabilities</div>
+
+    <div class="grid-2 mb-small">
+        <div class="code-card">
+            <div class="code-card-header">Web Search Tool</div>
+            <pre><code>response = client.responses.create(
+    model="gpt-5",
+    tools=[{"type": "web_search"}],
+    input="Latest AI tool releases in September 2025?"
+)
+print(response.output_text)
+
+# Chain: Markdown table from results
+table_response = client.responses.create(
+    model="gpt-5-mini",
+    previous_response_id=response.id,
+    input=[{"role": "user",
+            "content": "Put results in a markdown table."}]
+)</code></pre>
+        </div>
+        <div class="code-card">
+            <div class="code-card-header">Multi-turn Agentic Loop</div>
+            <pre><code>def run_conversation(messages, prev_id=None):
+    response = client.responses.create(
+        model="gpt-5",
+        input=messages,
+        tools=TOOLS,
+        previous_response_id=prev_id
+    )
+    tool_call = response.output[1] \
+        if len(response.output) > 1 else None
+
+    if tool_call and tool_call.type=="custom_tool_call":
+        result = execute_tool(tool_call.input)
+        messages.append({
+            "type": "function_call_output",
+            "call_id": tool_call.call_id,
+            "output": result
+        })
+        return run_conversation(messages, response.id)
+    return response  # base case: no more tool calls</code></pre>
+        </div>
+    </div>
+
+    <div class="grid-3">
+        <div class="card-light">
+            <div class="card-title">Retail Agent Pattern</div>
+            <div class="card-content">
+                <ol style="margin-left:14pt">
+                    <li>Authenticate user (email or name+zip)</li>
+                    <li>Retrieve relevant data</li>
+                    <li>Confirm before consequential actions</li>
+                    <li>Execute with <code>reasoning: "minimal"</code></li>
+                    <li>One tool call at a time</li>
+                </ol>
+            </div>
+        </div>
+        <div class="card-light">
+            <div class="card-title">SWE-Bench Pattern</div>
+            <div class="card-content">
+                <ul>
+                    <li>Use <code>reasoning: "high"</code></li>
+                    <li>Verify changes extremely thoroughly</li>
+                    <li>Account for hidden test edge cases</li>
+                    <li>Make as many tool calls as needed</li>
+                    <li>Triple-check before ending turn</li>
+                </ul>
+            </div>
+        </div>
+        <div class="card-light">
+            <div class="card-title">Frontend Dev Pattern</div>
+            <div class="card-content">
+                <ul>
+                    <li>Stack: Next.js + TypeScript + Tailwind + shadcn/ui</li>
+                    <li>Icons: Lucide, Animation: Motion</li>
+                    <li>4px spacing multiples, max 4-5 font sizes</li>
+                    <li>Skeletons for loading states</li>
+                    <li>Self-reflection rubric for quality</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+
+    <!-- SECTION 9: Quick Reference -->
+    <div class="section-title">9. Quick Reference &amp; Gotchas</div>
+
+    <div class="grid-2">
+        <div class="key-points">
+            <div class="key-points-title">✅ Do This</div>
+            <ul>
+                <li>Use <strong>Responses API</strong> (<code>client.responses.create</code>), not Chat Completions</li>
+                <li>Pass <strong><code>previous_response_id</code></strong> for multi-turn to save tokens + latency</li>
+                <li>Set <strong><code>reasoning.effort: "minimal"</code></strong> explicitly for speed-critical paths</li>
+                <li>Use <strong><code>text.verbosity: "high"</code></strong> for thorough code docs/audits</li>
+                <li>Keep CFG grammars <strong>simple</strong> — complex ones get API-rejected</li>
+                <li>Set <strong><code>parallel_tool_calls=False</code></strong> with custom tools</li>
+                <li>Use <strong><code>gpt-5-mini</code></strong> for follow-up processing of gpt-5 outputs</li>
+            </ul>
+        </div>
+        <div class="key-points" style="background:#fff0f0">
+            <div class="key-points-title">❌ Avoid This</div>
+            <ul>
+                <li>Using <code>temperature</code>, <code>top_p</code>, <code>logprobs</code> — not supported in GPT-5</li>
+                <li>Parallel tool calling with custom/freeform tools — not supported</li>
+                <li>Splitting free-text across multiple CFG terminals — use one bounded terminal</li>
+                <li>Contradictory instructions in the same system prompt</li>
+                <li>Complex CFG grammars without testing at high reasoning effort first</li>
+                <li>Re-generating full CoT on every turn — use <code>previous_response_id</code></li>
+                <li>Using Chat Completions for GPT-5 — missing CoT persistence</li>
+            </ul>
+        </div>
+    </div>
+
+    <div class="info-box" style="margin-top:8pt">
+        <div class="info-box-title">📚 Key Resources</div>
+        <p>
+            System Card: <strong>openai.com/index/gpt-5-system-card/</strong> &nbsp;|&nbsp;
+            Prompting Guide: <strong>cookbook.openai.com/examples/gpt-5/gpt-5_prompting_guide</strong> &nbsp;|&nbsp;
+            API Docs: <strong>platform.openai.com/docs/guides/latest-model</strong> &nbsp;|&nbsp;
+            Lark IDE: <strong>lark-parser.org/ide/</strong>
+        </p>
+    </div>
+
+    <footer>
+        <p>© 2025 Automata Learning Lab | O'Reilly Live Training: Getting Started with GPT-5 | Professional educational materials crafted with care</p>
+    </footer>
+
+</body>
+</html>
