@@ -4,13 +4,7 @@ pandas
 jinja2
 pydantic
 matplotlib
-# Agents SDK (gpt5-agentic-capabilities.ipynb, 5.1-fastapi-business-report.ipynb)
+numpy
+# Agents SDK (gpt5-agentic-capabilities.ipynb)
 # [unverified] package name -- confirm before pinning
 openai-agents
-# FastAPI report server companion (scripts/fastapi_report_server/)
-fastapi
-uvicorn
-# Realtime voice interpreter (5.0-realtime-voice-interpreter.ipynb)
-websockets
-sounddevice
-numpy
