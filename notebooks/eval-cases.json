@@ -1,0 +1,23 @@
+{
+  "description": "Sample eval cases for mini-eval.ipynb. Each case has an id, the prompt to send, and a grader. graders: 'contains' (output must contain expected, case-insensitive), 'equals' (normalized exact match), 'regex' (output must match the pattern).",
+  "cases": [
+    {
+      "id": "capital-france",
+      "prompt": "What is the capital of France? Answer with just the city name.",
+      "grader": "contains",
+      "expected": "Paris"
+    },
+    {
+      "id": "json-keys",
+      "prompt": "Return ONLY a JSON object with keys 'name' and 'age' for a person named Ada who is 36. No prose.",
+      "grader": "regex",
+      "expected": "\"name\"\\s*:\\s*\"Ada\""
+    },
+    {
+      "id": "arithmetic",
+      "prompt": "Compute 17 * 23 and reply with only the number.",
+      "grader": "equals",
+      "expected": "391"
+    }
+  ]
+}
