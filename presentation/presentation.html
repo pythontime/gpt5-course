@@ -399,9 +399,7 @@
 
     ---
 
-    # Conversations API — State Without the Plumbing
-
-    --
+    # Conversations API
 
     **Before (legacy):** manual `previous_response_id` chaining
 
@@ -409,31 +407,36 @@
     r1 = client.responses.create(model="gpt-5.5", input="tell me a joke")
     r2 = client.responses.create(
         model="gpt-5.5",
-        previous_response_id=r1.id,                 # chain by hand
+        previous_response_id=r1.id,
         input="explain why this is funny",
     )
     ```
 
-    --
-
-    **After (current):** a durable conversation object
+    **After:** a durable conversation object
 
     ```python
-    convo = client.conversations.create()           # persistent ID
+    convo = client.conversations.create()
     client.responses.create(
-        model="gpt-5.5",
-        conversation=convo.id,
-        store=True,                                  # persists indefinitely
+        model="gpt-5.5", conversation=convo.id, store=True,
         input="tell me a joke",
     )
     ```
 
+    .footnote[Source: https://developers.openai.com/api/docs/guides/conversation-state]
+
+    ---
+
+    # Conversations API — What Else It Gives You
+
     --
 
-    - **Server-side compaction** — `/responses/compact` (also inline via `context_management` / `compact_threshold`) shrinks the context you send each turn
-    - **`phase` parameter** — labels messages `commentary` (in-progress narration) vs `final_answer` (the deliverable)
+    - **Server-side compaction** — `/responses/compact` shrinks context automatically each turn
 
-    .footnote[Source: https://developers.openai.com/api/docs/guides/conversation-state · https://developers.openai.com/api/docs/changelog]
+    --
+
+    - **`phase` parameter** — `commentary` (thinking out loud) vs `final_answer` (the deliverable)
+
+    .footnote[Source: https://developers.openai.com/api/docs/changelog]
 
     ---
 
