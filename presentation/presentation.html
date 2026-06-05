@@ -192,8 +192,6 @@
 
     ---
 
-    ---
-
     class: center, middle
 
     # Ok, great the model does well on a lot of benchmarks, but what is new about it?
@@ -233,18 +231,6 @@
 
     ---
 
-    # Notes on GPT-5's System Card
-
-    **Real-time Router**
-    - Intelligently decides which model to use
-    - Based on conversation type, complexity, and tools needed
-
-    **Smart and Fast Model (gpt-5-main)**
-    - Handles most everyday questions efficiently
-    - Optimized for speed and general capability
-
-    ---
-
     <div style="justify-content: center; align-items: center; height: 70vh;">
       <img src="../assets/speed-output-token-speed.png" width="100%" style="margin-top: 70px;">
       <p style="font-size: 14px; color: gray;">GPT-5.4-mini: 155 tok/s · GPT-5.5: 63 tok/s (xhigh reasoning)</p>
@@ -260,24 +246,6 @@
     </div>
 
     .footnote[Source: https://artificialanalysis.ai/]
-
-    ---
-
-    # Notes on GPT-5's System Card
-
-    **Real-time Router**
-    - Intelligently decides which model to use
-    - Based on conversation type, complexity, and tools needed
-
-    **Smart and Fast Model (gpt-5-main & gpt-5-mini)**
-    - Handles most everyday questions efficiently
-    - Optimized for speed and general capability
-
-    **Deeper Reasoning Model (gpt-5-thinking)**
-    - Tackles complex problems requiring deep thought
-    - Produces long internal chains of reasoning
-    - Can refine strategies and recognize mistakes
-    
 
     ---
 
@@ -386,7 +354,7 @@
     ---
     class: center, middle
 
-    # Building with GPT-5: API & Integration
+    # Building with GPT-5.5: API & Integration
 
     ---
 
@@ -466,63 +434,11 @@
     </div>
 
     ---
-
-    # Supported Model Variants
-
-    --
-
-    **gpt-5** (flagship model)
-    - Maximum capability and performance
-    - Best for complex reasoning tasks
-
-    --
-
-    **gpt-5-mini** (cost-effective)
-    - 83% cost reduction vs GPT-4
-    - Nearly half the latency
-    - Excellent price-performance ratio
-
-    --
-
-    **gpt-5-nano** (ultra-fast)
-    - Optimized for speed
-    - Lightweight tasks and high-throughput scenarios
-
-    ---
-
-    # GPT-5 Pricing Considerations
-
-    ## Cost-Performance Analysis
-
-    --
-
-    ### **Pricing Tiers**:
-    - **Premium pricing** for maximum capability 
-    - **GPT-5**: 1.25$/M input tokens; 10$/M output tokens
-    - **GPT-5-mini**: $0.25/M input tokens ; $2.0/M output tokens
-    - **GPT-5-nano**: $0.05/M input tokens ; $0.4/M output tokens
-    
-
-    ---
-
-    # GPT-5 Pricing Considerations
-
-    ## Cost-Performance Analysis
-
-    --
-
-    ### **Optimization Strategies**:
-    - Use reasoning effort "minimal" for simple tasks
-    - Leverage router system for automatic optimization
-    - Choose appropriate model size for workload
-    - Implement smart caching strategies
-
-    ---
     class: center, middle
 
     <h1>
     <span style="background-color: lightgreen">
-      Demo: Getting Started with GPT-5
+      Demo: Getting Started with GPT-5.5
     </span>
     </h1>
 
@@ -714,7 +630,7 @@
 
     ```python
     # Set reasoning_effort to lower
-    reasoning_effort = "minimal"  # Improves efficiency, reduces latency
+    reasoning_effort = "none"  # Improves efficiency, reduces latency
     ```
 
     --
@@ -1053,7 +969,7 @@
 
     --
 
-    - **GPT-5's unified system** with routering intelligence represents a paradigm shift
+    - **Explicit model selection** — `gpt-5.5`, `gpt-5.4-mini`, `gpt-5.4-nano` for every use case
 
     --
 
@@ -1061,7 +977,7 @@
 
     --
 
-    - **State-of-the-art coding capabilities** with 74.9% on SWE-bench
+    - **Frontier coding** — `gpt-5.5` and `gpt-5.3-codex` for professional development work
 
     --
 
