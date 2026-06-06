@@ -96,15 +96,14 @@ python -m ipykernel install --user --name=oreilly-gpt5
 
 The course materials are organized in the `notebooks/` folder:
 
-- `00-introduction-openai-responses-api.ipynb`: introduction to the OpenAI Responses API and the Conversations API as the primary multi-turn pattern.
+- `0.0-introduction-openai-responses-api.ipynb`: introduction to the OpenAI Responses API and the Conversations API as the primary multi-turn pattern.
 - `1.0-intro-gpt5.ipynb`: intro to GPT-5.5 and usage of basic parameters and examples.
 - `2.0-gpt5-params.ipynb`: deep dive into the newest features that come with the GPT-5.5 model.
 - `3.0-gpt5-prompting-guide.ipynb`: deep dive into prompting best practices with GPT-5.5.
 - `4.0-gpt5-frontend-dev-experiments.ipynb`: fun experiment building a web-app maker with GPT-5.5.
-- `gpt5-agentic-capabilities.ipynb`: building agents with the OpenAI Agents SDK (agents, runners, tools, handoffs, guardrails, tracing).
-- `live-demo-function-calling.ipynb`: end-to-end function-calling loop over the Conversations API.
-- `mini-eval.ipynb`: a small, runnable evaluation harness (uses `eval-cases.json`) for comparing model/prompt behavior.
-- `lucas-references-sources-inspirations.ipynb`: curated sources, references, and how to stay up to date.
+- `5.0-gpt5-agentic-capabilities.ipynb`: building agents with the OpenAI Agents SDK (agents, runners, tools, handoffs, guardrails, tracing).
+- `6.0-live-demo-function-calling.ipynb`: end-to-end function-calling loop over the Conversations API.
+- `7.0-mini-eval.ipynb`: a small, runnable evaluation harness (uses `eval-cases.json`) for comparing model/prompt behavior.
 
 > See also the `CAPSTONE.md` brief at the repo root, which combines the agentic and frontend notebooks into a build-it-yourself mini agent project.
 
