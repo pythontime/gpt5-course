@@ -2,3 +2,9 @@ ipykernel
 openai
 pandas
 jinja2
+pydantic
+matplotlib
+numpy
+# Agents SDK (gpt5-agentic-capabilities.ipynb)
+# [unverified] package name -- confirm before pinning
+openai-agents
